@@ -16,7 +16,7 @@ function Dashboard(){
                      <h4>Sales</h4>
                      <EllipsisIcon />
                   </div>
-               <div className="grid grid-cols-4 gap-1 mt-1">
+               <div className="grid grid-cols-4 gap-1 mt-1 overflow-hidden">
                   <StatsCard title={"Impressions"} />
                   <StatsCard title={"Product Views"} />
                   <StatsCard title={"Add to Cart"} />

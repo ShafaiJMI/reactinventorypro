@@ -2,6 +2,7 @@ import React from "react";
 import { BarChart, Bar, ResponsiveContainer } from 'recharts';
 import { PieChart, Pie, Cell } from 'recharts';
 import {MessageSquareIcon} from "lucide-react";
+import data from "../../../data/dummy_data.json";
 
 const BChart = () => {
     const data = [
@@ -66,11 +67,11 @@ const PChart = () => {
     )
 }
 
-const Activity = () => {
+const Activity = ({props}) => {
   return (
       <div className="flex gap-4 p-2 mb-2 h-12 items-center bg-white/70 shadow-sm border rounded-md">
           <div className="bg-yellow-200 rounded-full p-2"><MessageSquareIcon size={16}/></div>
-          <div><p>Some Texts</p></div>
+          <div><p className="text-xs">{props.description}</p></div>
           <div></div>
       </div>
   )
@@ -91,10 +92,10 @@ function Aside() {
             <div className="rounded-3xl bg-white h-auto dark:bg-gray-800 mb-4">
                 <h4 className="px-4 pt-2">Activities</h4>
                 <div className="p-4 flex flex-col">
-                <Activity />
-                <Activity />
-                <Activity />
-                <Activity />
+                    {data.activityLogs.map((activity, index) => (
+                        <Activity key={index} props={activity} />
+                    ))}
+
                 </div>
             </div>
         </aside>
